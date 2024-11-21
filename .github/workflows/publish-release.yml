@@ -1,0 +1,64 @@
+name: Create new release
+
+on:
+  push:
+
+jobs:
+  fetch-changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          repository: 'community-scripts/ProxmoxVE'
+      - name: Upload CHANGELOG.md
+        uses: actions/upload-artifact@v4
+        with:
+          name: changelog
+          path: CHANGELOG.md
+
+  create-new-release:
+    runs-on: ubuntu-latest
+    needs: fetch-changelog
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Download CHANGELOG.md
+        uses: actions/download-artifact@v4
+        with:
+          name: changelog
+      - name: Check if there are any changes
+        id: verify-diff
+        run: |
+          git diff --quiet . || echo "changed=true" >> $GITHUB_OUTPUT
+      - name: Parse CHANGELOG and create a new tag
+        if: steps.verify-diff.outputs.changed == 'true'
+        run: |
+          DATE=$(grep '^## [0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}' CHANGELOG.md | head -n 1 | awk '{print $2}')
+          L=$(nl -v0 -ba CHANGELOG.md | grep '## [0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}' - | head -n 2 | awk '{print $1}')
+          DESCRIPTION=$(cat CHANGELOG.md |head -n $(echo $L | cut -d' ' -f 2) | tac | head -n -$(echo $L | cut -d' ' -f 1) | head -n -1 | tac)
+          
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add CHANGELOG.md
+          git commit -m "Changes from $DATE"
+          git push -u origin main
+          git tag -a "$DATE" -m "$DESCRIPTION"
+          git push --tags
+          
+          echo GITHUB_TAG_RELEASE_VERSION=$DATE >> $GITHUB_ENV
+          echo "$DESCRIPTION" > RELEASE_CHANGELOG.md
+
+      - name: Create release
+        if: steps.verify-diff.outputs.changed == 'true'
+        uses: ncipollo/release-action@v1
+        with:
+          bodyFile: "RELEASE_CHANGELOG.md"
+          tag: ${{ env.GITHUB_TAG_RELEASE_VERSION }}
+          makeLatest: true
+
