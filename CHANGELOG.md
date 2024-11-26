@@ -16,6 +16,22 @@ All LXC instances created using this repository come pre-installed with Midnight
 > [!IMPORTANT]
 Do not break established syntax in this file, as it is automatically updated by a Github Workflow
 
+## 2024-11-25
+
+### Changed
+
+### 💥 Breaking Changes
+
+- Remove Scrypted script [@MickLesk](https://github.com/MickLesk) ([#511](https://github.com/community-scripts/ProxmoxVE/pull/511))
+
+### 🚀 Updated Scripts
+
+- Fix upload folder in listmonk LXC [@bvdberg01](https://github.com/bvdberg01) ([#515](https://github.com/community-scripts/ProxmoxVE/pull/515))
+
+### 🌐 Website
+
+- Fix website url in Zoraxy documentation [@miggi92](https://github.com/miggi92) ([#506](https://github.com/community-scripts/ProxmoxVE/pull/506))
+
 ## 2024-11-24
 
 ### Changed
