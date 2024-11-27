@@ -16,6 +16,14 @@ All LXC instances created using this repository come pre-installed with Midnight
 > [!IMPORTANT]
 Do not break established syntax in this file, as it is automatically updated by a Github Workflow
 
+## 2024-11-26
+
+### Changed
+
+### 🚀 Updated Scripts
+
+- Fix Vikunja install script to prevent database deletion upon updating [@vhsdream](https://github.com/vhsdream) ([#524](https://github.com/community-scripts/ProxmoxVE/pull/524))
+
 ## 2024-11-25
 
 ### Changed
@@ -23,9 +31,12 @@ Do not break established syntax in this file, as it is automatically updated by 
 ### 💥 Breaking Changes
 
 - Remove Scrypted script [@MickLesk](https://github.com/MickLesk) ([#511](https://github.com/community-scripts/ProxmoxVE/pull/511))
+  - Because of request from Scrypted maintainer: [#494](https://github.com/community-scripts/ProxmoxVE/issues/494)
+  - Official Scrypted script can be used instead: https://docs.scrypted.app/installation.html#proxmox-ve
 
 ### 🚀 Updated Scripts
 
+- Fix bugs in Calibre-Web update [@havardthom](https://github.com/havardthom) ([#517](https://github.com/community-scripts/ProxmoxVE/pull/517))
 - Fix upload folder in listmonk LXC [@bvdberg01](https://github.com/bvdberg01) ([#515](https://github.com/community-scripts/ProxmoxVE/pull/515))
 
 ### 🌐 Website
