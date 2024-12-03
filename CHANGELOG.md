@@ -16,6 +16,29 @@ All LXC instances created using this repository come pre-installed with Midnight
 > [!IMPORTANT]
 Do not break established syntax in this file, as it is automatically updated by a Github Workflow
 
+## 2024-12-02
+
+### Changed
+
+### ✨ New Scripts
+
+- New Script: Hoarder LXC [@vhsdream](https://github.com/vhsdream) ([#567](https://github.com/community-scripts/ProxmoxVE/pull/567))
+- New script: SnipeIT LXC [@michelroegl-brunner](https://github.com/michelroegl-brunner) ([#538](https://github.com/community-scripts/ProxmoxVE/pull/538))
+- New Script: Glance [@quantumryuu](https://github.com/quantumryuu) ([#595](https://github.com/community-scripts/ProxmoxVE/pull/595))
+- New script: Unbound LXC [@wimb0](https://github.com/wimb0) ([#547](https://github.com/community-scripts/ProxmoxVE/pull/547))
+- New script: Mylar3 LXC [@davalanche](https://github.com/davalanche) ([#554](https://github.com/community-scripts/ProxmoxVE/pull/554))
+
+### 🚀 Updated Scripts
+
+- Stirling-PDF: replace dependency for v0.35.0 and add check and fix in stirling-pdf.sh [@vhsdream](https://github.com/vhsdream) ([#614](https://github.com/community-scripts/ProxmoxVE/pull/614))
+- qbittorrent: do not override the configuration port in systemd [@zdraganov](https://github.com/zdraganov) ([#618](https://github.com/community-scripts/ProxmoxVE/pull/618))
+
+### 🌐 Website
+
+- chore: Update unbound logo to have only the actual logo [@BramSuurdje](https://github.com/BramSuurdje) ([#648](https://github.com/community-scripts/ProxmoxVE/pull/648))
+- fix: vaultwarden info mismatch [@BramSuurdje](https://github.com/BramSuurdje) ([#645](https://github.com/community-scripts/ProxmoxVE/pull/645))
+- Wallos json fix [@quantumryuu](https://github.com/quantumryuu) ([#630](https://github.com/community-scripts/ProxmoxVE/pull/630))
+
 ## 2024-11-30
 
 ### Changed
