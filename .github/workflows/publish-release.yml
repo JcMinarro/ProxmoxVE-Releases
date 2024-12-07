@@ -1,9 +1,9 @@
 name: Create new release
 
-on:
-  schedule:
-    # Runs "At 00:01 every night"
-    - cron: '1 0 * * *'
+#on:
+#  schedule:
+#    # Runs "At 00:01 every night"
+#    - cron: '1 0 * * *'
 
 jobs:
   fetch-changelog:
